@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Mio Gioco Phaser</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="">Il Mio Gioco Horror Phaser</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Gioca</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Comandi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Contatti</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="hero-section">
+        <h1>Benvenuto nel mio gioco horror!</h1>
+        <p>Scopri il nostro terrificante gioco e affronta le tue paure!</p>
+    </div>
+    <div class="container text-center features-section" id="features">
+        <h2 class="my-4">Caratteristiche del Gioco</h2>
+        <div class="row">
+            <div class="col-md-4 feature">
+                <img src="" alt="Feature 1">
+                <h3>Ambienti Spaventosi</h3>
+                <p>Esplora ambienti dettagliati e spaventosi che ti terranno con il fiato sospeso.</p>
+            </div>
+            <div class="col-md-4 feature">
+                <img src="" alt="Feature 2">
+                <h3>Nemici Terrificanti</h3>
+                <p>Affronta nemici terrificanti che metteranno alla prova il tuo coraggio.</p>
+            </div>
+            <div class="col-md-4 feature">
+                <img src="" alt="Feature 3">
+                <h3>Storia Coinvolgente</h3>
+                <p>Vivi una storia coinvolgente che ti terrà incollato allo schermo.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container text-center">
+        <h1 class="my-4">Benvenuto nel mio gioco!</h1>
+        <div class="card mx-auto" style="width: 18rem;">
+            <img src="assets/casa.png" class="card-img-top" alt="Immagine del gioco">
+            <div class="card-body">
+                <h5 class="card-title">Prova il gioco</h5>
+                <p class="card-text">Scopri il nostro fantastico gioco e divertiti a esplorare nuovi mondi!</p>
+                <button id="playButton" class="btn btn-primary" onclick="toggleFullscreen()">Prova il gioco</button>
+            </div>
+        </div>
+        <div id="game-container"></div>
+    </div>
+    <div class="commands-section" id="commands">
+        <h2>Comandi del Gioco</h2>
+        <div class="command">
+            <img src="" alt="Freccia">
+            <p>Usa le frecce direzionali per muoverti</p>
+        </div>
+        <div class="command">
+            <img src="" alt="Barra Spaziatrice">
+            <p>Premi la barra spaziatrice per saltare</p>
+        </div>
+        <div class="command">
+            <img src="" alt="Ctrl">
+            <p>Premi Ctrl per attaccare</p>
+        </div>
+    </div>
+    <footer class="text-center mt-4">
+        <p>&copy; 2023 Il Mio Gioco Horror Phaser. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.js"></script>
+    <script type="text/javascript" src="js/Menu.js"></script>
+    <script type="text/javascript" src="js/Opz.js"></script>
+    <script type="text/javascript" src="js/Presentazione.js"></script>
+    <script type="text/javascript" src="js/Inizio.js"></script>
+    <script type="text/javascript" src="js/DialogSangue.js"></script>
+    <script type="text/javascript" src="js/TrovaChiave.js"></script>
+    <script type="text/javascript" src="js/blackOut.js"></script>
+    <script type="text/javascript" src="js/amongUs.js"></script>
+    <script type="text/javascript" src="js/cantina.js"></script>
+    <script type="text/javascript" src="js/scendi.js"></script>
+    <script type="text/javascript" src="js/elnath.js"></script>
+    <script type="text/javascript" src="js/dialogoLab.js"></script>
+    <script type="text/javascript" src="js/lab.js"></script>
+    <script type="text/javascript" src="js/finalFight.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
+
+    <script>
+
+        function toggleFullscreen() {
+            let gameContainer = document.getElementById("game-container");
+
+            if (gameContainer.requestFullscreen) {
+                if (!document.fullscreenElement) {
+                    gameContainer.requestFullscreen();
+                    gameContainer.style.visibility = "visible";
+                } else {
+                    document.exitFullscreen();
+                    gameContainer.style.visibility = "hidden";
+                }
+            } else {  
+                // Caso in cui il browser non supporta requestFullscreen()
+                if (!document.fullscreenElement) {
+                    gameContainer.classList.add("fullscreen-fake");
+                    document.body.style.overflow = "hidden";
+                    gameContainer.style.visibility = "visible";
+                } else {
+                    gameContainer.classList.remove("fullscreen-fake");
+                    document.body.style.overflow = "auto";
+                    gameContainer.style.visibility = "hidden";
+                }
+            }
+        }
+
+        // Aggiunge l'evento per uscire dal fullscreen con ESC
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") {
+                if (document.fullscreenElement) {
+                    document.exitFullscreen();
+                } else {
+                    document.getElementById("game-container").classList.remove("fullscreen-fake");
+                    document.body.style.overflow = "auto";
+                    document.getElementById("game-container").style.visibility = "hidden";
+                }
+            }
+        });
+
+        document.addEventListener('fullscreenchange', function() {
+            if (!document.fullscreenElement) {
+                document.getElementById('game-container').style.visibility = 'hidden';
+            }
+        });
+    </script>
+</body>
+</html>
