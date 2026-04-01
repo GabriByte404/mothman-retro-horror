@@ -2,72 +2,80 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>MOTHMAN | Official Site</title>
-    <!-- Font Elegante e Moderno -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700;900&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Navigazione Minimal -->
     <nav class="main-nav">
         <div class="logo">MOTHMAN</div>
         <div class="nav-links">
-            <a href="#about">Progetto</a>
             <a href="#commands">Comandi</a>
-            <a href="https://github.com/GabriByte404" target="_blank" class="github-link">GitHub</a>
+            <a href="#about">Progetto</a>
+            <a href="https://github.com/GabriByte404" target="_blank" class="github-link">
+                <i class="fab fa-github"></i> GitHub
+            </a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1 class="main-title">L'OSCURITÀ HA UN VOLTO.</h1>
-            <p class="hero-tagline">Un'esperienza horror procedurale in pixel art sviluppata con Phaser.js.</p>
-            <button id="playButton" class="play-trigger">GIOCA ORA — FREE</button>
+            <div class="badge">Survival Horror Experience</div>
+            <h1 class="main-title">L'OSCURITÀ<br>HA UN VOLTO.</h1>
+            <p class="hero-tagline">Affronta il Mothman in un'avventura pixel-art carica di tensione. Luci dinamiche, IA spietata e un'atmosfera retrò indimenticabile.</p>
+            <div class="hero-btns">
+                <button id="playButton" class="play-trigger" onclick="toggleFullscreen()">
+                    <i class="fas fa-play"></i> GIOCA ORA
+                </button>
+            </div>
         </div>
         <div class="hero-image-container">
             <img src="assets/casa.png" alt="Mothman Background" class="hero-img">
         </div>
     </section>
 
-    <!-- Sezione Comandi Aggiornata -->
     <section id="commands" class="content-section">
         <div class="container">
             <h2 class="section-title">CONTROLLI DI GIOCO</h2>
             <div class="commands-grid">
                 <div class="command-card">
-                    <span class="key">← ↑ ↓ →</span>
-                    <h3>MOVIMENTO</h3>
-                    <p>Esplora gli ambienti della struttura e sfuggi alle ombre.</p>
+                    <div class="icon-box"><i class="fas fa-arrows-alt"></i></div>
+                    <span class="key">FRECCE DIREZIONALI</span>
+                    <h3>ESPLORAZIONE</h3>
+                    <p>Muoviti attraverso le stanze della struttura e scappa dalle ombre.</p>
                 </div>
                 <div class="command-card">
+                    <div class="icon-box"><i class="fas fa-keyboard"></i></div>
                     <span class="key">SPACEBAR</span>
                     <h3>PROTOCOLLO ATTACCO</h3>
-                    <p>Usa la barra spaziatrice per difenderti dalle minacce.</p>
+                    <p>Usa la barra spaziatrice per respingere le minacce improvvise.</p>
                 </div>
                 <div class="command-card">
+                    <div class="icon-box"><i class="fas fa-power-off"></i></div>
                     <span class="key">ESC</span>
                     <h3>SYSTEM EXIT</h3>
-                    <p>Torna alla realtà in qualsiasi momento.</p>
+                    <p>Premi ESC per uscire dalla modalità a schermo intero.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sezione Dettagli Tecnici -->
     <section id="about" class="content-section dark-bg">
         <div class="container">
-            <div class="tech-info">
-                <h2>DETTAGLI TECNICI</h2>
-                <p>Mothman è un esperimento di <strong>Creative Coding</strong> che spinge al limite le capacità di gestione dell'illuminazione 2D e del raycasting per l'intelligenza artificiale.</p>
-                <ul class="tech-list">
-                    <li><span>Engine:</span> Phaser 3.60</li>
-                    <li><span>Logic:</span> Finite State Machine (FSM)</li>
-                    <li><span>AI:</span> Raycasting Line-of-Sight</li>
-                    <li><span>Visuals:</span> Custom Pixel Art Asset</li>
-                </ul>
+            <div class="tech-grid">
+                <div class="tech-info">
+                    <h2 class="section-title">ENGINE & LOGICA</h2>
+                    <p>Mothman è un esperimento di <strong>Creative Coding</strong> che spinge al limite la gestione dell'illuminazione 2D e del raycasting IA nel browser.</p>
+                    <ul class="tech-list">
+                        <li><span>Engine:</span> Phaser 3.60</li>
+                        <li><span>Physics:</span> Arcade Physics</li>
+                        <li><span>AI:</span> Raycasting Line-of-Sight</li>
+                        <li><span>Visuals:</span> Custom 8-bit Assets</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -75,12 +83,10 @@
     <div id="game-container"></div>
 
     <footer class="site-footer">
-        <p>&copy; 2026 GABRIELE MARTINI — SVILUPPATO PER SCOPI DIDATTICI</p>
+        <p>&copy; 2026 GABRIELE MARTINI — Computer Science Project</p>
     </footer>
 
-    <!-- JS SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.js" defer></script>
-
     <script src="js/Menu.js" defer></script>
     <script src="js/Opz.js" defer></script>
     <script src="js/Presentazione.js" defer></script>
@@ -95,21 +101,24 @@
     <script src="js/dialogoLab.js" defer></script>
     <script src="js/lab.js" defer></script>
     <script src="js/finalFight.js" defer></script>
-
     <script src="js/game.js" defer></script>
 
     <script>
         function toggleFullscreen() {
             let container = document.getElementById("game-container");
             if (!document.fullscreenElement) {
-                container.requestFullscreen().catch(err => { console.error(err); });
                 container.style.display = "flex";
+                container.requestFullscreen().catch(err => {
+                    console.error("Errore Fullscreen:", err);
+                });
             } else {
                 document.exitFullscreen();
             }
         }
         document.addEventListener('fullscreenchange', () => {
-            if (!document.fullscreenElement) document.getElementById('game-container').style.display = "none";
+            if (!document.fullscreenElement) {
+                document.getElementById('game-container').style.display = "none";
+            }
         });
     </script>
 </body>
